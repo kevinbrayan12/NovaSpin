@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MetaSpin - Desafío Diario</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .logo {
+      font-size: 3.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      background: linear-gradient(45deg, #00fff0, #ff00f7, #00ffe7, #00ff5e);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowGlow 6s ease infinite;
+    }
+
+    @keyframes rainbowGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 1rem 0;
+      color: #e0e0e0;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .boton-rgb {
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: 2px solid #00ffe7;
+      background: transparent;
+      color: #00ffe7;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .boton-rgb:hover {
+      background-color: #00ffe7;
+      color: #0d0d0d;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8rem;
+      color: #777;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">MetaSpin</div>
+    <h1>Desafíos diarios para cambiar tu vida</h1>
+    <p>Cada giro te reta a mejorar. ¡Empieza tu cambio hoy mismo!</p>
+    <a href="https://kevinbrayan12.github.io/2-MetaSpin-/" class="boton-rgb">¡Entra ya!</a>
+  </div>
+  <footer>
+    &copy; 2025 MetaSpin | Proyecto escolar – I.E. República Federal Socialista de Yugoslavia. Todos los derechos reservados.
+  </footer>
+</body>
+</html>
+
