@@ -1,101 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MetaSpin - Desafío Diario</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaSpin - Acceso</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      background-color: #0d0d0d;
-      color: #fff;
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #1e1e2f, #2a2a4e);
+      color: white;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      min-height: 100vh;
+    }
+    .fade-in {
+      animation: fadeIn 1.2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
+      justify-content: center;
+      padding: 20px;
       text-align: center;
     }
-
-    .container {
-      padding: 2rem;
-      border-radius: 10px;
-    }
-
-    .logo {
-      font-size: 3.5rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      background: linear-gradient(45deg, #00fff0, #ff00f7, #00ffe7, #00ff5e);
-      background-size: 400% 400%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rainbowGlow 6s ease infinite;
-    }
-
-    @keyframes rainbowGlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
     h1 {
-      font-size: 2rem;
-      margin: 1rem 0;
-      color: #e0e0e0;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #00ffc8;
     }
-
-    p {
-      font-size: 1.1rem;
-      color: #ccc;
-      margin-bottom: 2rem;
+    .question {
+      margin: 15px 0;
     }
-
-    .boton-rgb {
-      padding: 0.8rem 2rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border: 2px solid #00ffe7;
-      background: transparent;
-      color: #00ffe7;
-      border-radius: 30px;
+    select, button {
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    button {
+      background-color: #00ffc8;
+      color: black;
       cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
+      transition: background 0.3s, transform 0.2s;
     }
-
-    .boton-rgb:hover {
-      background-color: #00ffe7;
-      color: #0d0d0d;
+    button:hover {
+      background-color: #00c6a0;
       transform: scale(1.05);
     }
-
     footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.8rem;
-      color: #777;
+      background: #111;
       text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .hidden {
+      display: none;
+    }
+    .entrar-btn {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      background-color: #ffdd57;
+      color: #111;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">MetaSpin</div>
-    <h1>Desafíos diarios para cambiar tu vida</h1>
-    <p>Cada giro te reta a mejorar. ¡Empieza tu cambio hoy mismo!</p>
-    <a href="https://kevinbrayan12.github.io/2-MetaSpin-/" class="boton-rgb">¡Entra ya!</a>
+  <div class="container fade-in" id="access-container">
+    <h1>¿Estás listo para crecer?</h1>
+    <div class="question">
+      <label>¿Te comprometes a mejorar cada día?</label><br>
+      <select id="q1">
+        <option value="">Selecciona</option>
+        <option value="1">Sí, totalmente</option>
+        <option value="0">No realmente</option>
+      </select>
+    </div>
+    <div class="question">
+      <label>¿Tienes ganas de organizar tu vida?</label><br>
+      <select id="q2">
+        <option value="">Selecciona</option>
+        <option value="1">Sí, quiero hacerlo</option>
+        <option value="0">Solo si me obligan</option>
+      </select>
+    </div>
+    <div class="question">
+      <label>¿Te consideras responsable de tu futuro?</label><br>
+      <select id="q3">
+        <option value="">Selecciona</option>
+        <option value="1">Sí, totalmente</option>
+        <option value="0">No mucho</option>
+      </select>
+    </div>
+    <button onclick="verificarAcceso()">Demostrar que estoy listo</button>
   </div>
+
+  <div class="container hidden fade-in" id="metaspin-content">
+    <h1>¡Bienvenido a NovaSpin!</h1>
+    <p>Has sido aceptado. Esta es tu nueva herramienta para crecer ✨</p>
+    <button class="entrar-btn" onclick="redirigir()">Estoy listo. Entrar ahora ➤</button>
+  </div>
+
   <footer>
-    &copy; 2025 MetaSpin | Proyecto escolar – I.E. República Federal Socialista de Yugoslavia. Todos los derechos reservados.
+    © 2025 NovaSpin | Proyecto escolar – I.E. República Federal Socialista de Yugoslavia. Todos los derechos reservados
   </footer>
+
+  <script>
+    function verificarAcceso() {
+      const q1 = document.getElementById("q1").value;
+      const q2 = document.getElementById("q2").value;
+      const q3 = document.getElementById("q3").value;
+
+      if (q1 === "" || q2 === "" || q3 === "") {
+        alert("Por favor, responde todas las preguntas.");
+        return;
+      }
+
+      const puntaje = parseInt(q1) + parseInt(q2) + parseInt(q3);
+      if (puntaje >= 2) {
+        localStorage.setItem("metaspin_access", "true");
+        mostrarContenido();
+      } else {
+        alert("Aún no estás listo para entrar. Reflexiona y vuelve pronto ✨");
+      }
+    }
+
+    function mostrarContenido() {
+      document.getElementById("access-container").classList.add("hidden");
+      document.getElementById("metaspin-content").classList.remove("hidden");
+    }
+
+    function redirigir() {
+      window.location.href = "https://kevinbrayan12.github.io/2-MetaSpin-/";
+    }
+
+    if (localStorage.getItem("metaspin_access") === "true") {
+      mostrarContenido();
+    }
+  </script>
 </body>
 </html>
-
